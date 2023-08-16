@@ -1,0 +1,307 @@
+---
+title: "EDS 221 - Scientific programming essentials"
+format: html
+editor: visual
+execute:
+  warning: false
+  message: false
+---
+
+# Introduction
+
+## Terms
+
+Programming: *writing instructions to tell computer what to do*
+
+Data science: *\"process of turning data into understanding\"*
+
+Programming language: *language that we use to communicate with computers*
+
+Reproducibility: *Being able to reproduce outcomes of prior study* 
+
+-   **Computational:** when information is provides about code, software, hardware and implementation details 
+
+-   **Empirical:** when detailed info is provided about non-computational (eg. how data was collected)
+
+-   **Statistical:** information about methods of analysis
+
+## Terminal Commands
+
+**git commit -m "message"**
+
+-   commit changes
+
+**git push**
+
+-   push changes to remote repository
+
+**git pull**
+
+-   pull to check for updates in remote repo
+
+**mkdir** my-new-folder 
+
+-   To create new folder 
+
+**rmdir** my-new-file
+
+-   Remove file from folder 
+
+**touch**
+
+-   To add file (eg. rmd or qmd)
+
+**git branch**
+
+-   Will tell you what branch you're working in
+
+**git checkout main**
+
+-   Will take you to branch selected, in this case **main** branch
+
+# **Data representation and types**
+
+## Types
+
+#### Numeric (eg. 14.6, -0.031)
+
+-   Integer: whole number
+
+-   Floats, doubles (subset of numeric- more precision/more bits allotted eg. 64 bit vs 32 bit)
+
+-   Trying to coerce numeric to integer will not work in R, in Python it will run down 
+
+-   Combining -\> will result in the most flexible class
+
+#### Integer (eg. 8L)
+
+-   Whole numbers
+
+-   Character (eg. \"cat breath\" or \"bren\")
+
+    -   Sequence of characters create **strings**
+
+    -   In R strings are stored as class \"character\"
+
+    -   In Python stored as class \"str\"
+
+#### Logical (True/False)
+
+-   Binary and mutually exclusive values 
+
+-   Coded as 0 and 1
+
+#### Factors 
+
+-   Ordered discrete levels
+
+-   Order matters and can be specified
+
+-   Important for ordinal variables that are included in models/analyses
+
+## Data Structures
+
+### Homogenous (same type)
+
+##### 1D - Atomic vector: Flat sequence of values, all of the same type
+
+1.  Properties of vector
+
+    1.  Type (eg. \"character\" \"logical\")
+
+    2.  Length
+
+    3.  Attributes (additional associates metadata)
+
+##### 2D- Matrix (eg. leslie matrix)
+
+1.  Arrangement of values
+
+2.  Usually mxn table of values
+
+3.  Usually use dataframes
+
+##### nD- Array
+
+### Heterogeneous (different types)
+
+##### 1D-List
+
+1.  Like a vector, but can contain different data types
+
+2.  Use list()
+
+3.  Outputs of models are often stored as lists 
+
+##### 2D-Data frame
+
+1.  Can contain different classes
+
+2.  List of equal length vectors 
+
+3.  Make data frames manually/ import them (eg. csv, xlsx, .txt)
+
+### Indexing: accessing elements from different data structures 
+
+use \[ \]
+
+-   \[row, column\]
+
+    -   In R: first element is position = 1
+
+    -   In Python: first element is position = 0
+
+    -   If only give one elements (eg. \[8\]) then it refers to just column 8
+
+# **Conditionals and logical operations, intro to for-loops**
+
+## Boolean operators
+
+== does this match
+
+## Conditional Statements
+
+#### if: 
+
+*if a condition is met, do this. Otherwise, no nothing.*
+
+**in R**
+
+```{r}
+burrito <- 2.4 # assigning object value 
+
+# if statement 
+if (burrito > 2) {
+  print("I love these!")
+}
+```
+
+**in Python**
+
+```{r}
+# burrito = 2.4
+# 
+# if burrito > 2:
+#   print("I love these!")
+```
+
+#### if-else: 
+
+*if a condition is met, do this. Otherwise, do a different thing.*
+
+-   to extend...
+
+    if( ) {
+
+    } else if( ) {
+
+    } else( )
+
+```{r}
+pika <- 89.1
+
+if(pika > 60) {
+  print("mega pika")
+} else
+  print("normal pika")
+```
+
+#### switch: 
+
+*allows a variable to be tested in favor of equality against a list of case values.*
+
+```{r}
+species = "mouse"
+
+switch(species, 
+       "cat" = print("Meow"),
+       "dog" = print("Woof!"),
+       "mouse" = print("Squeak!"))
+```
+
+### For Loops
+
+For each country in data set...
+
+For each csv file in directory...
+
+for each species in data...
+
+#### Basic For-loop
+
+##### Strings:
+
+```{r, results = 'hide'}
+dog_names <- c("A", "B", "C", "D")
+
+for (i in dog_names) { # this is the sequence
+  print(paste("My dog's name is", i)) # this is the body of the loop; telling it what to do
+}
+```
+
+##### Numeric:
+
+```{r, results = 'hide'}
+mass <- seq(from = 0, to = 12, by = 0.5)
+
+for (i in mass) {
+  new_val = i + 2
+  print(new_val)
+}
+```
+
+A better way to do this...because it allows you to use access information from more than 1 vector. Position based way to access elements of vectors.
+
+```{r, results = 'hide'}
+mass <- seq(from = 0, to = 12, by = 0.5)
+
+# accessing value based on its position
+  # seq_along() makes a vector of counts that is the length of chosen vector
+for (i in seq_along(mass)) {
+  new_val = mass[i] + 2
+  print(new_val)
+}
+
+# another example
+vec <- c(3, 5, 7, 8, 2)
+
+for (i in seq_along(vec)) {
+  print(vec[i] + 2)
+}
+```
+
+##### Storing outputs:
+
+-   Pre-create an empty vector to store the outcome of the for loop
+
+```{r}
+# my_output <- vector(mode = "numeric", 
+#                     length = length(vector))
+
+tigers <- c(29, 34, 82)
+lions <- c(2, 18, 6)
+
+# storage; creating an empty vector
+big_cats <- vector(mode = "numeric", 
+                   length = length(tigers))
+
+for (i in seq_along(tigers)) {
+  total_cats <- tigers[i] + lions[i]
+  big_cats[i] <- total_cats
+}
+```
+
+#### For loops and Conditionals
+
+-   good for groups of data/across different files (eg. if file type is csv put it *here*, if file type is html put it **there**)
+
+```{r, results = 'hide'}
+animal <- c("fi", "fy", "fo", "fum", "no")
+
+for (i in seq_along(animal)) {
+  if (animal[i] == "fi") {
+    print("I love ogres!")
+  } else
+    print("This is the wrong castle")
+}
+```
