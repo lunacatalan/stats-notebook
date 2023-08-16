@@ -13,7 +13,7 @@ execute:
 
 Programming: *writing instructions to tell computer what to do*
 
-Data science: *\"process of turning data into understanding\"*
+Data science: *"process of turning data into understanding"*
 
 Programming language: *language that we use to communicate with computers*
 
@@ -77,13 +77,13 @@ Reproducibility: *Being able to reproduce outcomes of prior study* 
 
 -   Whole numbers
 
--   Character (eg. \"cat breath\" or \"bren\")
+-   Character (eg. "cat breath" or "bren")
 
     -   Sequence of characters create **strings**
 
-    -   In R strings are stored as class \"character\"
+    -   In R strings are stored as class "character"
 
-    -   In Python stored as class \"str\"
+    -   In Python stored as class "str"
 
 #### Logical (True/False)
 
@@ -107,7 +107,7 @@ Reproducibility: *Being able to reproduce outcomes of prior study* 
 
 1.  Properties of vector
 
-    1.  Type (eg. \"character\" \"logical\")
+    1.  Type (eg. "character" "logical")
 
     2.  Length
 
@@ -161,7 +161,7 @@ use \[ \]
 
 ## Conditional Statements
 
-#### if: 
+#### if:
 
 *if a condition is met, do this. Otherwise, no nothing.*
 
@@ -185,7 +185,7 @@ if (burrito > 2) {
 #   print("I love these!")
 ```
 
-#### if-else: 
+#### if-else:
 
 *if a condition is met, do this. Otherwise, do a different thing.*
 
@@ -206,7 +206,7 @@ if(pika > 60) {
   print("normal pika")
 ```
 
-#### switch: 
+#### switch:
 
 *allows a variable to be tested in favor of equality against a list of case values.*
 
@@ -305,3 +305,75 @@ for (i in seq_along(animal)) {
     print("This is the wrong castle")
 }
 ```
+
+#### Referring to columns in a data frame
+
+Reference column using \$ (eg. penguins\$species)
+
+Reference using \[ \] and calling column number
+
+-   [ ] will call all items in column as a single data frame
+
+-   \[\[ \]\] will call all items in column as a vector
+
+```{r}
+mean_mtcars <- vector(mode = "numeric", 
+                      length = ncol(mtcars)) # make the length the # of columns in mtcars 
+
+for (i in seq_along(mtcars)) {
+  mean_val <- mean(mtcars[[i]], # return vector of values
+                   na.rm = TRUE) # remove NA values so that we can still take mean
+  mean_mtcars[i] <- mean_val
+}
+```
+
+Iterate over a selected number/type of columns
+
+```{r}
+# data we are using 
+library(palmerpenguins)
+```
+
+```{r}
+
+for (i in seq_along(penguins)) {
+  if (is.numeric(penguins[[i]])) {
+    penguin_med <- median(penguins[[i]],
+                          na.rm = TRUE)
+    print(penguin_med)
+  }
+}
+```
+
+## Functional Programming
+
+### apply(): 
+
+*a family of functions in base R; iterating across rows or columns*
+
+apply(data.frame, #, function)
+
+-   1 means iterating for columns *eg.* *apply(mtcars, 1, mean)*
+
+-   2 means iterating for rows
+
+```{r}
+# apply function across rows or columns of a matrix
+apply()
+
+lapply()
+
+sapply()
+```
+
+### tapply()
+
+*apply a function by group (factor level)*
+
+### dplyr()::across(): 
+
+*function in dplyr to apply a function across specified columns*
+
+### {purrr}: 
+
+*R package that allows you to replace many for-loops with better code*
