@@ -295,7 +295,7 @@ for (i in seq_along(tigers)) {
 }
 ```
 
-Another example of for-loop:
+**Another example of for-loop:**
 
 -   paste0() *output is a string without spaces*
 
@@ -438,7 +438,7 @@ pet_count <- function(bird, dog) {
 pet_count(3, 5)
 ```
 
-Another example:
+**Another example:**
 
 ```{r}
 exclaim_age <- function(age) {
@@ -462,7 +462,9 @@ animal_age <- function(animal, age) {
 
 ```
 
-**Example:**
+### Examples
+
+**Example 1**
 
 ```{r}
 calculate_animal_age <- function(species, age_human_yrs) {
@@ -505,9 +507,7 @@ convert_kelvin_to_f_c <- function(temp_kelvin, scale) {
 convert_kelvin_to_f_c(50, "metric")
 ```
 
-### Examples
-
-**Example 1**
+**Anotha one!!!**
 
 Create a function that returns an awesome restaurant name given a cool animal and your favorite food.
 
@@ -520,7 +520,7 @@ restaurant_name <- function(animal, food) {
 restaurant_name("tiger", "Apples")
 ```
 
-**Example 2**
+**Lets get ittttt, one more example:**
 
 Given temp in degrees F, write a function that converts it to Celsius.
 
@@ -532,7 +532,7 @@ f_to_c <- function(f_temp) {
 f_to_c(50)
 ```
 
-**Example 3**
+**Just kidding, heres the last one:**
 
 Create a function that given inputs of age and hometowns, return "I am \_\_ years old, and I'm from \_\_\_"
 
@@ -573,7 +573,7 @@ logistic_growth <- function(N0, K, r, time) {
 }
 ```
 
-```{r}
+```{r, results = 'hide'}
 # create vector of times
 time_vec <- seq(from = 0, to = 35, by = 0.1)
 
@@ -594,5 +594,3 @@ for (i in 1:length(r_seq)) { # outer loop is the growth rates
   }
 }
 ```
-
-### 
