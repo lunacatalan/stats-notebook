@@ -461,3 +461,138 @@ animal_age <- function(animal, age) {
 }
 
 ```
+
+**Example:**
+
+```{r}
+calculate_animal_age <- function(species, age_human_yrs) {
+  if (species == "dog") {
+    age_human_yrs * 7
+  } else if (species == "goat") {
+    age_human_yrs * 4.7
+  }
+}
+
+# to break it
+calculate_animal_age("whale", 7)
+
+# solution - add another else condition 
+calculate_animal_age <- function(species, age_human_yrs) {
+  if (species == "dog") {
+    age_human_yrs * 7
+  } else if (species == "goat") {
+    age_human_yrs * 4.7
+  } else print("Please enter goat or dog!")
+}
+
+calculate_animal_age("whale", 7)
+```
+
+**Another Example:**
+
+Write a function that will return, given temp in Kelvin, if a user selects "metric" to the scale then return degrees C, or if they select "english" then return degrees in F.
+
+```{r}
+
+convert_kelvin_to_f_c <- function(temp_kelvin, scale) {
+  if (scale == "metric") {
+    print(temp_kelvin - 273.15)
+} else if (scale == "english") {
+    print((temp_kelvin - 273.15) * 9/5 + 32)
+  }
+}
+
+convert_kelvin_to_f_c(50, "metric")
+```
+
+### Examples
+
+**Example 1**
+
+Create a function that returns an awesome restaurant name given a cool animal and your favorite food.
+
+```{r}
+
+restaurant_name <- function(animal, food) {
+  print(paste0(animal, food))
+}
+
+restaurant_name("tiger", "Apples")
+```
+
+**Example 2**
+
+Given temp in degrees F, write a function that converts it to Celsius.
+
+```{r}
+f_to_c <- function(f_temp) {
+  print((f_temp - 39) * (5/9))
+}
+
+f_to_c(50)
+```
+
+**Example 3**
+
+Create a function that given inputs of age and hometowns, return "I am \_\_ years old, and I'm from \_\_\_"
+
+```{r}
+
+home_town <- function(age, town) {
+  print(paste("I am", age, "years old, and I'm from", town))
+}
+
+home_town(13, "NYC")
+```
+
+## Logistic Growth Equation
+
+### Step 1: Plan
+
+*I want to automate estimating the population size over a range of times, and at multiple growth rates (for a constant intitial population and carrying capacity).*
+
+### Step 2: Pseudocode
+
+```{r}
+# out_matrix = matrix() # to sore output
+# 
+# for (i in sequence of growth rates) {
+#   for (j in sequence of times) {
+#     calc_logisitc( for i over all j)
+#     store calc_population in out_matrix
+#   }
+# }
+```
+
+### Step 3: Create function
+
+```{r}
+logistic_growth <- function(N0, K, r, time) {
+  Nt <- K / (1 + ((K-N0) / N0) * exp(-r * time))
+  print(Nt)
+}
+```
+
+```{r}
+# create vector of times
+time_vec <- seq(from = 0, to = 35, by = 0.1)
+
+# create a sequence of growth rate values:
+r_seq <- seq(from = 0.2, to = 0.4, by =0.01)
+
+# create a Matrix to store outputs in
+out_matrix <- matrix(nrow = length(time_vec),
+                     ncol = length(r_seq))
+
+for (i in 1:length(r_seq)) { # outer loop is the growth rates
+  for (j in 1:length(time_vec)) { # innter loop is the time sequence values
+    pop <- logistic_growth(N0 = 100, 
+                           K = 6000, 
+                           r = r_seq[i],
+                           time = time_vec[j])
+    out_matrix[j, i] <- pop # store the valye in the appropriate row and column 
+  }
+}
+```
+
+### 
