@@ -6,6 +6,7 @@ execute:
   warning: false
   message: false
 toc: true
+toc-depth: 4
 ---
 
 # Introduction
@@ -448,7 +449,7 @@ exclaim_age <- function(age) {
 exclaim_age(10)
 ```
 
-## Function with Condition 
+## Function with Condition
 
 ```{r}
 animal_age <- function(animal, age) {

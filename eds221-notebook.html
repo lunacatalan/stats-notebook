@@ -80,13 +80,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms">Terms</a></li>
   <li><a href="#terminal-commands" id="toc-terminal-commands" class="nav-link" data-scroll-target="#terminal-commands">Terminal Commands</a></li>
   </ul></li>
   <li><a href="#data-representation-and-types" id="toc-data-representation-and-types" class="nav-link" data-scroll-target="#data-representation-and-types"><strong>Data representation and types</strong></a>
+  <ul>
+  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a>
   <ul class="collapse">
-  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a></li>
+  <li><a href="#numeric-eg.-14.6--0.031" id="toc-numeric-eg.-14.6--0.031" class="nav-link" data-scroll-target="#numeric-eg.-14.6--0.031">Numeric (eg. 14.6, -0.031)</a></li>
+  <li><a href="#integer-eg.-8l" id="toc-integer-eg.-8l" class="nav-link" data-scroll-target="#integer-eg.-8l">Integer (eg. 8L)</a></li>
+  <li><a href="#logical-truefalse" id="toc-logical-truefalse" class="nav-link" data-scroll-target="#logical-truefalse">Logical (True/False)</a></li>
+  <li><a href="#factors" id="toc-factors" class="nav-link" data-scroll-target="#factors">Factors&nbsp;</a></li>
+  </ul></li>
   <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a>
   <ul class="collapse">
   <li><a href="#homogenous-same-type" id="toc-homogenous-same-type" class="nav-link" data-scroll-target="#homogenous-same-type">Homogenous (same type)</a></li>
@@ -95,11 +101,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#conditionals-and-logical-operations-intro-to-for-loops" id="toc-conditionals-and-logical-operations-intro-to-for-loops" class="nav-link" data-scroll-target="#conditionals-and-logical-operations-intro-to-for-loops"><strong>Conditionals and logical operations, intro to for-loops</strong></a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#boolean-operators" id="toc-boolean-operators" class="nav-link" data-scroll-target="#boolean-operators">Boolean operators</a></li>
   <li><a href="#conditional-statements" id="toc-conditional-statements" class="nav-link" data-scroll-target="#conditional-statements">Conditional Statements</a>
   <ul class="collapse">
-  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops">For Loops</a></li>
+  <li><a href="#if" id="toc-if" class="nav-link" data-scroll-target="#if">if:</a></li>
+  <li><a href="#if-else" id="toc-if-else" class="nav-link" data-scroll-target="#if-else">if-else:</a></li>
+  <li><a href="#switch" id="toc-switch" class="nav-link" data-scroll-target="#switch">switch:</a></li>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops">For Loops</a>
+  <ul class="collapse">
+  <li><a href="#basic-for-loop" id="toc-basic-for-loop" class="nav-link" data-scroll-target="#basic-for-loop">Basic For-loop</a></li>
+  <li><a href="#for-loops-and-conditionals" id="toc-for-loops-and-conditionals" class="nav-link" data-scroll-target="#for-loops-and-conditionals">For loops and Conditionals</a></li>
+  <li><a href="#referring-to-columns-in-a-data-frame" id="toc-referring-to-columns-in-a-data-frame" class="nav-link" data-scroll-target="#referring-to-columns-in-a-data-frame">Referring to columns in a data frame</a></li>
+  <li><a href="#nested-for-loops" id="toc-nested-for-loops" class="nav-link" data-scroll-target="#nested-for-loops">Nested For loops</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#functional-programming" id="toc-functional-programming" class="nav-link" data-scroll-target="#functional-programming">Functional Programming</a>
   <ul class="collapse">
@@ -110,8 +125,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#introduction-to-functions" id="toc-introduction-to-functions" class="nav-link" data-scroll-target="#introduction-to-functions">Introduction to Functions</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <ul>
+  <li><a href="#anatomy-of-a-function" id="toc-anatomy-of-a-function" class="nav-link" data-scroll-target="#anatomy-of-a-function">Anatomy of a Function</a></li>
+  <li><a href="#function-with-condition" id="toc-function-with-condition" class="nav-link" data-scroll-target="#function-with-condition">Function with Condition</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -148,6 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Empirical:</strong> when detailed info is provided about non-computational (eg. how data was collected)</p></li>
 <li><p><strong>Statistical:</strong> information about methods of analysis</p></li>
 </ul>
+<p>Functions: <em>self contained bits of code that accept user inputs, do something with it, and return a useful output</em></p>
 </section>
 <section id="terminal-commands" class="level2">
 <h2 class="anchored" data-anchor-id="terminal-commands">Terminal Commands</h2>
@@ -549,8 +566,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="introduction-to-functions" class="level1">
 <h1>Introduction to Functions</h1>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<section id="anatomy-of-a-function" class="level2">
+<h2 class="anchored" data-anchor-id="anatomy-of-a-function">Anatomy of a Function</h2>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># function_name &lt;- function(arguments) { body/outputs }</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>pet_count <span class="ot">&lt;-</span> <span class="cf">function</span>(bird, dog) {</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  pets <span class="ot">=</span> bird <span class="sc">+</span> dog</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pets)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># using the function</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pet_count</span>(<span class="dv">3</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8</code></pre>
+</div>
+</div>
+<p>Another example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>exclaim_age <span class="ot">&lt;-</span> <span class="cf">function</span>(age) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"I am"</span>, age, <span class="st">"years old!"</span>))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># using function</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">exclaim_age</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "I am 10 years old!"</code></pre>
+</div>
+</div>
+</section>
+<section id="function-with-condition" class="level2">
+<h2 class="anchored" data-anchor-id="function-with-condition">Function with Condition</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>animal_age <span class="ot">&lt;-</span> <span class="cf">function</span>(animal, age) {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (animal <span class="sc">==</span> <span class="st">"dog"</span>) { <span class="co"># if the animal inputed is dog</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(age <span class="sc">*</span> <span class="dv">7</span>) <span class="co"># then use this equation to create output</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (animal <span class="sc">==</span> <span class="st">"goat"</span>) { <span class="co"># if the animal input is goat</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(age <span class="sc">*</span> <span class="fl">4.7</span>) <span class="co"># then use this equation to create output</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 
