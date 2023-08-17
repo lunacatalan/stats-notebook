@@ -71,10 +71,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#terms" id="toc-terms" class="nav-link" data-scroll-target="#terms">Terms</a></li>
+  <li><a href="#terminal-commands" id="toc-terminal-commands" class="nav-link" data-scroll-target="#terminal-commands">Terminal Commands</a></li>
+  </ul></li>
+  <li><a href="#data-representation-and-types" id="toc-data-representation-and-types" class="nav-link" data-scroll-target="#data-representation-and-types"><strong>Data representation and types</strong></a>
+  <ul class="collapse">
+  <li><a href="#types" id="toc-types" class="nav-link" data-scroll-target="#types">Types</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures">Data Structures</a>
+  <ul class="collapse">
+  <li><a href="#homogenous-same-type" id="toc-homogenous-same-type" class="nav-link" data-scroll-target="#homogenous-same-type">Homogenous (same type)</a></li>
+  <li><a href="#heterogeneous-different-types" id="toc-heterogeneous-different-types" class="nav-link" data-scroll-target="#heterogeneous-different-types">Heterogeneous (different types)</a></li>
+  <li><a href="#indexing-accessing-elements-from-different-data-structures" id="toc-indexing-accessing-elements-from-different-data-structures" class="nav-link" data-scroll-target="#indexing-accessing-elements-from-different-data-structures">Indexing: accessing elements from different data structures&nbsp;</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conditionals-and-logical-operations-intro-to-for-loops" id="toc-conditionals-and-logical-operations-intro-to-for-loops" class="nav-link" data-scroll-target="#conditionals-and-logical-operations-intro-to-for-loops"><strong>Conditionals and logical operations, intro to for-loops</strong></a>
+  <ul class="collapse">
+  <li><a href="#boolean-operators" id="toc-boolean-operators" class="nav-link" data-scroll-target="#boolean-operators">Boolean operators</a></li>
+  <li><a href="#conditional-statements" id="toc-conditional-statements" class="nav-link" data-scroll-target="#conditional-statements">Conditional Statements</a>
+  <ul class="collapse">
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops">For Loops</a></li>
+  </ul></li>
+  <li><a href="#functional-programming" id="toc-functional-programming" class="nav-link" data-scroll-target="#functional-programming">Functional Programming</a>
+  <ul class="collapse">
+  <li><a href="#apply" id="toc-apply" class="nav-link" data-scroll-target="#apply">apply():</a></li>
+  <li><a href="#tapply" id="toc-tapply" class="nav-link" data-scroll-target="#tapply">tapply()</a></li>
+  <li><a href="#dplyracross" id="toc-dplyracross" class="nav-link" data-scroll-target="#dplyracross">dplyr()::across():</a></li>
+  <li><a href="#purrr" id="toc-purrr" class="nav-link" data-scroll-target="#purrr">{purrr}:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#introduction-to-functions" id="toc-introduction-to-functions" class="nav-link" data-scroll-target="#introduction-to-functions">Introduction to Functions</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -99,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="terms" class="level2">
 <h2 class="anchored" data-anchor-id="terms">Terms</h2>
 <p>Programming: <em>writing instructions to tell computer what to do</em></p>
-<p>Data science: <em>"process of turning data into understanding"</em></p>
+<p>Data science: <em>“process of turning data into understanding”</em></p>
 <p>Programming language: <em>language that we use to communicate with computers</em></p>
 <p>Reproducibility: <em>Being able to reproduce outcomes of prior study</em>&nbsp;</p>
 <ul>
@@ -161,11 +202,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="integer-eg.-8l">Integer (eg. 8L)</h4>
 <ul>
 <li><p>Whole numbers</p></li>
-<li><p>Character (eg. "cat breath" or "bren")</p>
+<li><p>Character (eg. “cat breath” or “bren”)</p>
 <ul>
 <li><p>Sequence of characters create <strong>strings</strong></p></li>
-<li><p>In R strings are stored as class "character"</p></li>
-<li><p>In Python stored as class "str"</p></li>
+<li><p>In R strings are stored as class “character”</p></li>
+<li><p>In Python stored as class “str”</p></li>
 </ul></li>
 </ul>
 </section>
@@ -182,6 +223,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Ordered discrete levels</p></li>
 <li><p>Order matters and can be specified</p></li>
 <li><p>Important for ordinal variables that are included in models/analyses</p></li>
+</ul>
+</section>
+</section>
+<section id="data-structures" class="level2">
+<h2 class="anchored" data-anchor-id="data-structures">Data Structures</h2>
+<section id="homogenous-same-type" class="level3">
+<h3 class="anchored" data-anchor-id="homogenous-same-type">Homogenous (same type)</h3>
+<section id="d---atomic-vector-flat-sequence-of-values-all-of-the-same-type" class="level5">
+<h5 class="anchored" data-anchor-id="d---atomic-vector-flat-sequence-of-values-all-of-the-same-type">1D - Atomic vector: Flat sequence of values, all of the same type</h5>
+<ol type="1">
+<li><p>Properties of vector</p>
+<ol type="1">
+<li><p>Type (eg. “character” “logical”)</p></li>
+<li><p>Length</p></li>
+<li><p>Attributes (additional associates metadata)</p></li>
+</ol></li>
+</ol>
+</section>
+<section id="d--matrix-eg.-leslie-matrix" class="level5">
+<h5 class="anchored" data-anchor-id="d--matrix-eg.-leslie-matrix">2D- Matrix (eg. leslie matrix)</h5>
+<ol type="1">
+<li><p>Arrangement of values</p></li>
+<li><p>Usually mxn table of values</p></li>
+<li><p>Usually use dataframes</p></li>
+</ol>
+</section>
+<section id="nd--array" class="level5">
+<h5 class="anchored" data-anchor-id="nd--array">nD- Array</h5>
+</section>
+</section>
+<section id="heterogeneous-different-types" class="level3">
+<h3 class="anchored" data-anchor-id="heterogeneous-different-types">Heterogeneous (different types)</h3>
+<section id="d-list" class="level5">
+<h5 class="anchored" data-anchor-id="d-list">1D-List</h5>
+<ol type="1">
+<li><p>Like a vector, but can contain different data types</p></li>
+<li><p>Use list()</p></li>
+<li><p>Outputs of models are often stored as lists&nbsp;</p></li>
+</ol>
+</section>
+<section id="d-data-frame" class="level5">
+<h5 class="anchored" data-anchor-id="d-data-frame">2D-Data frame</h5>
+<ol type="1">
+<li><p>Can contain different classes</p></li>
+<li><p>List of equal length vectors&nbsp;</p></li>
+<li><p>Make data frames manually/ import them (eg. csv, xlsx, .txt)</p></li>
+</ol>
+</section>
+</section>
+<section id="indexing-accessing-elements-from-different-data-structures" class="level3">
+<h3 class="anchored" data-anchor-id="indexing-accessing-elements-from-different-data-structures">Indexing: accessing elements from different data structures&nbsp;</h3>
+<p>use [ ]</p>
+<ul>
+<li><p>[row, column]</p>
+<ul>
+<li><p>In R: first element is position = 1</p></li>
+<li><p>In Python: first element is position = 0</p></li>
+<li><p>If only give one elements (eg. [8]) then it refers to just column 8</p></li>
+</ul></li>
 </ul>
 </section>
 </section>
@@ -316,13 +416,141 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">length =</span> <span class="fu">length</span>(tigers))</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(tigers)) {</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  total_cats <span class="ot">&lt;-</span> tigers[i] <span class="sc">+</span> lions[i]</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  total_cats <span class="ot">&lt;-</span> tigers[i] <span class="sc">+</span> lions[i] <span class="co"># indexing accessing the value in i element</span></span>
 <span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  big_cats[i] <span class="ot">&lt;-</span> total_cats</span>
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Another example of for-loop:</p>
+<ul>
+<li>paste0() <em>output is a string without spaces</em></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dosage <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create empty vector</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>dose_index <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"character"</span>, </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">length =</span> <span class="fu">length</span>(dosage)) </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># fill the empty vector</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(dosage)) {</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"zinc_"</span>, dosage[i])</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  dose_index[i] <span class="ot">&lt;-</span> k</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="for-loops-and-conditionals" class="level4">
+<h4 class="anchored" data-anchor-id="for-loops-and-conditionals">For loops and Conditionals</h4>
+<ul>
+<li>good for groups of data/across different files (eg. if file type is csv put it <em>here</em>, if file type is html put it <strong>there</strong>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>animal <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"fi"</span>, <span class="st">"fy"</span>, <span class="st">"fo"</span>, <span class="st">"fum"</span>, <span class="st">"no"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(animal)) {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (animal[i] <span class="sc">==</span> <span class="st">"fi"</span>) {</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"I love ogres!"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"This is the wrong castle"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="referring-to-columns-in-a-data-frame" class="level4">
+<h4 class="anchored" data-anchor-id="referring-to-columns-in-a-data-frame">Referring to columns in a data frame</h4>
+<p>Reference column using $ (eg. penguins$species)</p>
+<p>Reference using [ ] and calling column number</p>
+<ul>
+<li><p><input type="checkbox">will call all items in column as a single data frame</p></li>
+<li><p>[[ ]] will call all items in column as a vector</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mean_mtcars <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"numeric"</span>, </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">length =</span> <span class="fu">ncol</span>(mtcars)) <span class="co"># make the length the # of columns in mtcars </span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(mtcars)) {</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  mean_val <span class="ot">&lt;-</span> <span class="fu">mean</span>(mtcars[[i]], <span class="co"># return vector of values</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># remove NA values so that we can still take mean</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  mean_mtcars[i] <span class="ot">&lt;-</span> mean_val</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Iterate over a selected number/type of columns</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data we are using </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(penguins)) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.numeric</span>(penguins[[i]])) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    penguin_med <span class="ot">&lt;-</span> <span class="fu">median</span>(penguins[[i]],</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(penguin_med)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 44.45
+[1] 17.3
+[1] 197
+[1] 4050
+[1] 2008</code></pre>
+</div>
+</div>
+</section>
+<section id="nested-for-loops" class="level4">
+<h4 class="anchored" data-anchor-id="nested-for-loops">Nested For loops</h4>
+<p>Example with explanation in comments:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>file_prefix <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"temp"</span>, <span class="st">"ph"</span>, <span class="st">"salinity"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>file_suffix <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(file_prefix)) { </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq_along</span>(file_suffix)) {</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste0</span>(file_prefix[i], <span class="st">"_"</span>, file_suffix[j]))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># starting at i = 1, </span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   has to go through every value of j before i goes to 2</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#    for i = 1, output is </span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                         i1_j1, i1_j2, i1_j3, i1_j4, i1_j5</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># then i = 2, output is</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   has to go through every value of j before i goes to 3</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co">#    for i = 2, output is</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co">#                         i2_j1, i2_j2, i2_j3, i2_j4, i2_j5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 </section>
+<section id="functional-programming" class="level2">
+<h2 class="anchored" data-anchor-id="functional-programming">Functional Programming</h2>
+<section id="apply" class="level3">
+<h3 class="anchored" data-anchor-id="apply">apply():</h3>
+<p><em>a family of functions in base R; iterating across rows or columns of a matrix</em></p>
+<p>apply(data.frame, #, function)</p>
+<ul>
+<li><p>1 means iterating for columns <em>eg.</em> <em>apply(mtcars, 1, mean)</em></p></li>
+<li><p>2 means iterating for rows</p></li>
+</ul>
+<p>lapply()</p>
+<p>sapply()</p>
+</section>
+<section id="tapply" class="level3">
+<h3 class="anchored" data-anchor-id="tapply">tapply()</h3>
+<p><em>apply a function by group (factor level)</em></p>
+</section>
+<section id="dplyracross" class="level3">
+<h3 class="anchored" data-anchor-id="dplyracross">dplyr()::across():</h3>
+<p><em>function in dplyr to apply a function across specified columns</em></p>
+</section>
+<section id="purrr" class="level3">
+<h3 class="anchored" data-anchor-id="purrr">{purrr}:</h3>
+<p><em>R package that allows you to replace many for-loops with better code</em></p>
+</section>
+</section>
+</section>
+<section id="introduction-to-functions" class="level1">
+<h1>Introduction to Functions</h1>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 </section>
 </section>
 

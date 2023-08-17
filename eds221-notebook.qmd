@@ -5,6 +5,7 @@ editor: visual
 execute:
   warning: false
   message: false
+toc: true
 ---
 
 # Introduction
@@ -24,6 +25,8 @@ Reproducibility: *Being able to reproduce outcomes of prior study* 
 -   **Empirical:** when detailed info is provided about non-computational (eg. how data was collected)
 
 -   **Statistical:** information about methods of analysis
+
+Functions: *self contained bits of code that accept user inputs, do something with it, and return a useful output*
 
 ## Terminal Commands
 
@@ -286,8 +289,27 @@ big_cats <- vector(mode = "numeric",
                    length = length(tigers))
 
 for (i in seq_along(tigers)) {
-  total_cats <- tigers[i] + lions[i]
+  total_cats <- tigers[i] + lions[i] # indexing accessing the value in i element
   big_cats[i] <- total_cats
+}
+```
+
+Another example of for-loop:
+
+-   paste0() *output is a string without spaces*
+
+```{r}
+
+dosage <- c(10, 100, 1000)
+
+# create empty vector
+dose_index <- vector(mode = "character", 
+                     length = length(dosage)) 
+
+# fill the empty vector
+for (i in seq_along(dosage)) {
+  k <- paste0("zinc_", dosage[i])
+  dose_index[i] <- k
 }
 ```
 
@@ -345,11 +367,35 @@ for (i in seq_along(penguins)) {
 }
 ```
 
+#### Nested For loops
+
+Example with explanation in comments:
+
+```{r, results = 'hide'}
+file_prefix <- c("temp", "ph", "salinity")
+file_suffix <- c(1, 2, 3, 4, 5)
+
+for (i in seq_along(file_prefix)) { 
+  for (j in seq_along(file_suffix)) {
+    print(paste0(file_prefix[i], "_", file_suffix[j]))
+  }
+}
+
+# starting at i = 1, 
+#   has to go through every value of j before i goes to 2
+#    for i = 1, output is 
+#                         i1_j1, i1_j2, i1_j3, i1_j4, i1_j5
+# then i = 2, output is
+#   has to go through every value of j before i goes to 3
+#    for i = 2, output is
+#                         i2_j1, i2_j2, i2_j3, i2_j4, i2_j5
+```
+
 ## Functional Programming
 
-### apply(): 
+### apply():
 
-*a family of functions in base R; iterating across rows or columns*
+*a family of functions in base R; iterating across rows or columns of a matrix*
 
 apply(data.frame, #, function)
 
@@ -357,23 +403,60 @@ apply(data.frame, #, function)
 
 -   2 means iterating for rows
 
-```{r}
-# apply function across rows or columns of a matrix
-apply()
-
 lapply()
 
 sapply()
-```
 
 ### tapply()
 
 *apply a function by group (factor level)*
 
-### dplyr()::across(): 
+### dplyr()::across():
 
 *function in dplyr to apply a function across specified columns*
 
-### {purrr}: 
+### {purrr}:
 
 *R package that allows you to replace many for-loops with better code*
+
+# Introduction to Functions
+
+## Anatomy of a Function
+
+Example:
+
+```{r}
+# function_name <- function(arguments) { body/outputs }
+
+pet_count <- function(bird, dog) {
+  pets = bird + dog
+  return(pets)
+}
+
+# using the function
+pet_count(3, 5)
+```
+
+Another example:
+
+```{r}
+exclaim_age <- function(age) {
+  print(paste("I am", age, "years old!"))
+}
+
+# using function
+exclaim_age(10)
+```
+
+## Function with Condition 
+
+```{r}
+animal_age <- function(animal, age) {
+  if (animal == "dog") { # if the animal inputed is dog
+   print(age * 7) # then use this equation to create output
+} else if (animal == "goat") { # if the animal input is goat
+  print(age * 4.7) # then use this equation to create output
+}
+}
+
+```
