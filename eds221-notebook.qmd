@@ -664,3 +664,11 @@ Example:
 Citation function to cite the packages used!
 
 -   citation("package_name")
+
+## Creating a Package
+
+1.  Make new R package project
+2.  write new R script to define function
+    1.  make sure R script file name is the same as function name (good practice)
+3.  to create documentation use devtools::document()
+    1.  this will create .Rd file for that function within the package you created
