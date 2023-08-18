@@ -594,3 +594,73 @@ for (i in 1:length(r_seq)) { # outer loop is the growth rates
   }
 }
 ```
+
+# Testing Functions
+
+Unit test: *formal, automated check to make sure a piece ("unit") of your code is behaving expectantly*
+
+-   assume you will not remember what you have tested from a function
+
+## {testthat} Functions
+
+*Makes it easy to describe what you expect a function to do*
+
+-   expect_equal() *does the function return the expected values?*
+
+-   expect_type() *does the function return the expected type?*
+
+-   expect_length() *if a vector is returned, is it the expected length?*
+
+-   expect_true() *does the function return TRUE?*
+
+Example:
+
+-   If true, nothing is returned. If the function does not pass a test, an error message will be returned.
+
+```{r}
+# this '1' value at the end is the expected length 
+## expect_length(fish_mass(alpha = 1, beta = 2, fish_length = 3), 1)
+
+```
+
+# Finding, exploring, and using packages
+
+## Finding useful packages
+
+-   Check out [this](https://cran.r-project.org/web/views/) link to see what packages are available to use on CRAN. And [this](https://ropensci.org/) link to check out R Open Science packages.
+
+## Vetting Packages Checklist
+
+-   Maturity (how long its been around for)
+
+    -   CRAN old sources -\> see how many iterations it has gone through
+
+    -   look at lifecycle
+
+-   Active development (are still people contributing? modifying for updates?)
+
+    -   look at commits, issues, added features
+
+-   Recently updated
+
+    -   commits, closed issues
+
+-   Documentation available
+
+-   Used and published in similar projects
+
+-   License
+
+-   Semantics intuitive
+
+-   Functions that get the job done
+
+-   Arguments to support your needs
+
+-   Dependencies reported/reasonable (packages your code is using - try not to use too many)
+
+## Citing Packages
+
+Citation function to cite the packages used!
+
+-   citation("package_name")

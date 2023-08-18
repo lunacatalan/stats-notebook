@@ -138,6 +138,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#step-3-create-function" id="toc-step-3-create-function" class="nav-link" data-scroll-target="#step-3-create-function">Step 3: Create function</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#testing-functions" id="toc-testing-functions" class="nav-link" data-scroll-target="#testing-functions">Testing Functions</a>
+  <ul>
+  <li><a href="#testthat-functions" id="toc-testthat-functions" class="nav-link" data-scroll-target="#testthat-functions">{testthat} Functions</a></li>
+  </ul></li>
+  <li><a href="#finding-exploring-and-using-packages" id="toc-finding-exploring-and-using-packages" class="nav-link" data-scroll-target="#finding-exploring-and-using-packages">Finding, exploring, and using packages</a>
+  <ul>
+  <li><a href="#finding-useful-packages" id="toc-finding-useful-packages" class="nav-link" data-scroll-target="#finding-useful-packages">Finding useful packages</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -748,6 +756,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+</section>
+</section>
+<section id="testing-functions" class="level1">
+<h1>Testing Functions</h1>
+<p>Unit test: <em>formal, automated check to make sure a piece (“unit”) of your code is behaving expectantly</em></p>
+<ul>
+<li>assume you will not remember what you have tested from a function</li>
+</ul>
+<section id="testthat-functions" class="level2">
+<h2 class="anchored" data-anchor-id="testthat-functions">{testthat} Functions</h2>
+<p><em>Makes it easy to describe what you expect a function to do</em></p>
+<ul>
+<li><p>expect_equal() <em>does the function return the expected values?</em></p></li>
+<li><p>expect_type() <em>does the function return the expected type?</em></p></li>
+<li><p>expect_length() <em>if a vector is returned, is it the expected length?</em></p></li>
+<li><p>expect_true() <em>does the function return TRUE?</em></p></li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>If true, nothing is returned. If the function does not pass a test, an error message will be returned.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this '1' value at the end is the expected length </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## expect_length(fish_mass(alpha = 1, beta = 2, fish_length = 3), 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="finding-exploring-and-using-packages" class="level1">
+<h1>Finding, exploring, and using packages</h1>
+<section id="finding-useful-packages" class="level2">
+<h2 class="anchored" data-anchor-id="finding-useful-packages">Finding useful packages</h2>
+<ul>
+<li><p>Check out (this)[https://cran.r-project.org/web/views/]</p></li>
+<li></li>
+</ul>
 </section>
 </section>
 
