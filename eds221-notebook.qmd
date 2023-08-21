@@ -708,3 +708,115 @@ Goal: make the column names into observations under new variable name, and align
 *Separate elements in single column into multiple columns (eg. "adult coyote"is a single value. It can be split into observations of a "life stage" and "species" variable (adult, coyote))*
 
 **Python:** use name.str.split(expand TRUE)
+
+## Data Wrangling 
+
+### Filter
+
+-   exact match
+
+-   with %in%
+
+-   with !
+
+#### AND / OR 
+
+-   & or comma for AND statements
+
+-   \| for OR statements
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(lterdatasampler)
+
+adelie_torgersen <- penguins %>% 
+  filter(species == "Adelie" &         # can use & or comma for AND statements 
+           island == "Torgersen")
+
+gentoo_adelie <- penguins %>% 
+  filter(species == "Gentoo" |         # use | for OR statements
+           species == "Adelie")      
+
+```
+
+#### %in% / !
+
+-   %in% *asks does the value in our column match ANY of the values IN this vector?*
+
+-   ! *asks is this NOT equal to that value?*
+
+```{r}
+# using %in% operator to ask: does the value in our column match ANY of the values IN this vector?
+pie_sites <- pie_crab %>% 
+  filter(site %in% c("NIB", "ZI", "DB", "JC")) 
+
+# ! = asks is this NOT equal to that value?
+excluse_zi <- pie_crab %>% 
+  filter(site ! = "ZI")
+
+
+```
+
+```{r}
+exclude_bb_cc_pie <- pie_crab %>% 
+  filter(!site %in% c("NIB", "DB", "JC")) # ! before the column name when excluding multiple 
+
+crab_size <- pie_crab %>% 
+  filter(site %in% c("NIB", "CC", "ZI") & 
+           size > 13)
+```
+
+### Select
+
+```{r}
+# select individual columns by name, separate them by comma
+crabs_subset <- pie_crab %>% 
+  select(latitude, size, water_temp)
+
+# select range from site to air_temp
+crab_sub_2 <- pie_crab %>% 
+  select(site:air_temp)
+```
+
+### Mutate
+
+```{r}
+# use mutate to add new column containing mean of size
+## new column has the same value for all cells because it found mean of entire size column 
+crabs_cm <- pie_crab %>% 
+  mutate(size_cm = mean(size, na.rm = TRUE))
+
+# Reminder: group_by and summarize
+
+mean_size_by_site <- pie_crab %>% 
+  group_by(site) %>% 
+  summarize(mean_size = mean(size, na.rm = TRUE))
+
+# group_by then mutate
+## create new column that has the mean by site 
+group_mutate <- pie_crab %>% 
+  group_by(site) %>% 
+  mutate(mean_size = mean(size, na.rm = TRUE))
+```
+
+#### dyplyr::case_when() 
+
+use to write if-else statements more easily
+
+```{r}
+# create new column with if-else conditions 
+crabs_bin <- pie_crab %>% 
+  mutate(size_binned = case_when(
+    size > 25 ~ "giant",
+    size <= 25 ~ "not giant"
+  ))
+
+
+sites_binned <- pie_crab %>% 
+  mutate(region = case_when(
+    site %in% c("ZI", "CC", "PIE") ~ "Low",
+    site %in% c("GTM", "SI", "NIB") ~ "Med",
+    TRUE ~ "High"
+  ))
+```
