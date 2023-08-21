@@ -145,7 +145,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#finding-exploring-and-using-packages" id="toc-finding-exploring-and-using-packages" class="nav-link" data-scroll-target="#finding-exploring-and-using-packages">Finding, exploring, and using packages</a>
   <ul>
   <li><a href="#finding-useful-packages" id="toc-finding-useful-packages" class="nav-link" data-scroll-target="#finding-useful-packages">Finding useful packages</a></li>
+  <li><a href="#vetting-packages-checklist" id="toc-vetting-packages-checklist" class="nav-link" data-scroll-target="#vetting-packages-checklist">Vetting Packages Checklist</a></li>
+  <li><a href="#citing-packages" id="toc-citing-packages" class="nav-link" data-scroll-target="#citing-packages">Citing Packages</a></li>
+  <li><a href="#creating-a-package" id="toc-creating-a-package" class="nav-link" data-scroll-target="#creating-a-package">Creating a Package</a></li>
   </ul></li>
+  <li><a href="#tidy-data---makin-life-easier" id="toc-tidy-data---makin-life-easier" class="nav-link" data-scroll-target="#tidy-data---makin-life-easier">Tidy Data - Makin Life Easier :)</a></li>
   </ul>
 </nav>
 </div>
@@ -788,10 +792,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="finding-useful-packages" class="level2">
 <h2 class="anchored" data-anchor-id="finding-useful-packages">Finding useful packages</h2>
 <ul>
-<li><p>Check out (this)[https://cran.r-project.org/web/views/]</p></li>
-<li></li>
+<li>Check out <a href="https://cran.r-project.org/web/views/">this</a> link to see what packages are available to use on CRAN. And <a href="https://ropensci.org/">this</a> link to check out R Open Science packages.</li>
 </ul>
 </section>
+<section id="vetting-packages-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="vetting-packages-checklist">Vetting Packages Checklist</h2>
+<ul>
+<li><p>Maturity (how long its been around for)</p>
+<ul>
+<li><p>CRAN old sources -&gt; see how many iterations it has gone through</p></li>
+<li><p>look at lifecycle</p></li>
+</ul></li>
+<li><p>Active development (are still people contributing? modifying for updates?)</p>
+<ul>
+<li>look at commits, issues, added features</li>
+</ul></li>
+<li><p>Recently updated</p>
+<ul>
+<li>commits, closed issues</li>
+</ul></li>
+<li><p>Documentation available</p></li>
+<li><p>Used and published in similar projects</p></li>
+<li><p>License</p></li>
+<li><p>Semantics intuitive</p></li>
+<li><p>Functions that get the job done</p></li>
+<li><p>Arguments to support your needs</p></li>
+<li><p>Dependencies reported/reasonable (packages your code is using - try not to use too many)</p></li>
+</ul>
+</section>
+<section id="citing-packages" class="level2">
+<h2 class="anchored" data-anchor-id="citing-packages">Citing Packages</h2>
+<p>Citation function to cite the packages used!</p>
+<ul>
+<li>citation(“package_name”)</li>
+</ul>
+</section>
+<section id="creating-a-package" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-package">Creating a Package</h2>
+<ol type="1">
+<li>Make new R package project</li>
+<li>write new R script to define function
+<ol type="1">
+<li>make sure R script file name is the same as function name (good practice)</li>
+</ol></li>
+<li>to create documentation use devtools::document()
+<ol type="1">
+<li>this will create .Rd file for that function within the package you created</li>
+</ol></li>
+</ol>
+</section>
+</section>
+<section id="tidy-data---makin-life-easier" class="level1">
+<h1>Tidy Data - Makin Life Easier :)</h1>
+<p>Predictable way of organizing data</p>
+<ol type="1">
+<li>each variable is a column</li>
+<li>each observation is a row</li>
+<li>each cell contains a single value</li>
+</ol>
+<p>Variable: <em>characteristic that is being measured, counted, or described (eg. car type, salinity, year, population, kangaroo mass)</em></p>
+<p>Observation: <em>single data point</em></p>
+<p>Value: <em>recorded measure, count, or description of a variable (eg. the individual cell)</em></p>
 </section>
 
 </main>

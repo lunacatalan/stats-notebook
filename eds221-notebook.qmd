@@ -672,3 +672,39 @@ Citation function to cite the packages used!
     1.  make sure R script file name is the same as function name (good practice)
 3.  to create documentation use devtools::document()
     1.  this will create .Rd file for that function within the package you created
+
+# Tidy Data - Makin Life Easier :)
+
+Predictable way of organizing data
+
+1.  each variable is a column
+2.  each observation is a row
+3.  each cell contains a single value
+
+Variable: *characteristic that is being measured, counted, or described (eg. car type, salinity, year, population, kangaroo mass)*
+
+Observation: *single data point*
+
+Value: *recorded measure, count, or description of a variable (eg. the individual cell)*
+
+## Useful Functions
+
+### tidyr::pivot_longer()
+
+*Melt columns when observations are being used as column names.*
+
+Goal: make the column names into observations under new variable name, and aligns values into a count column variable.
+
+**Python:** use melt()
+
+### tidyr::pivot_wider()
+
+*Spread out variables that are in the same column into their own columns.*
+
+**Python**: use pivot_table()
+
+### tidyr::separate()
+
+*Separate elements in single column into multiple columns (eg. "adult coyote"is a single value. It can be split into observations of a "life stage" and "species" variable (adult, coyote))*
+
+**Python:** use name.str.split(expand TRUE)
