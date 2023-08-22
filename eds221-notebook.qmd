@@ -9,6 +9,12 @@ toc: true
 toc-depth: 4
 ---
 
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(lterdatasampler)
+```
+
 # Introduction
 
 ## Terms
@@ -353,8 +359,8 @@ for (i in seq_along(mtcars)) {
 Iterate over a selected number/type of columns
 
 ```{r}
-# data we are using 
-library(palmerpenguins)
+# # data we are using 
+# library(palmerpenguins)
 ```
 
 ```{r}
@@ -726,9 +732,6 @@ Goal: make the column names into observations under new variable name, and align
 -   \| for OR statements
 
 ```{r}
-library(tidyverse)
-library(palmerpenguins)
-library(lterdatasampler)
 
 adelie_torgersen <- penguins %>% 
   filter(species == "Adelie" &         # can use & or comma for AND statements 
@@ -753,7 +756,7 @@ pie_sites <- pie_crab %>%
 
 # ! = asks is this NOT equal to that value?
 excluse_zi <- pie_crab %>% 
-  filter(site ! = "ZI")
+  filter(!site == "ZI")
 
 
 ```
@@ -845,3 +848,55 @@ Looking for a **key** to connect data frames
 #### inner_join (x, y)
 
 *only keep things from each table with a key match in x and y. There will be no NA values added to new dataset.*
+
+### Join Examples
+
+Data used for these examples:
+
+```{r}
+# load tables 
+animals <- tibble::tribble(
+  ~location,   ~species,  ~maturity,
+   "lagoon",   "bobcat",    "adult",
+    "bluff",   "coyote", "juvenile",
+    "creek",      "fox",    "adult",
+     "oaks", "squirrel", "juvenile",
+    "bluff",   "bobcat",    "adult"
+  )
+
+sites <- data.frame(
+  stringsAsFactors = FALSE,
+          location = c("beach", "lagoon", "bluff", "oaks"),
+    full_site_name = c("Goleta Beach","UCSB Lagoon",
+                       "Ellwood Mesa","Fremont Campground"),
+      jurisdiction = c("SB City", "UCSB", "SB City", "USFS")
+)
+```
+
+Check out the new tables produced by the joins below:
+
+```{r}
+full_join_example <- full_join(animals, sites) %>% 
+  print()
+```
+
+```{r}
+left_join_example <- left_join(animals, sites) %>% 
+  print()
+
+```
+
+```{r}
+inner_join_ex <- inner_join(animals, sites) %>% 
+  print()
+```
+
+## Dates and Times
+
+-   Store date/times using ISO 8601 (international organization standardization 8601)
+-   Format: YYYY-MM-DD - keep the leading zeroes (eg. January is 01, the third day of the month is 03)
+    -   Full date +hours + minutes: YYYY-MM-DDThh:mmTZD
+    -   Full date +hours + minutes + seconds: YYYY-MM-DDThh:mm:ssTZD
+-   Examples
+    -   1996-02-18T20:34-07:00
+    -   2002-12-05T2:41-07:00
