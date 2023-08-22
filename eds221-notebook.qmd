@@ -709,7 +709,7 @@ Goal: make the column names into observations under new variable name, and align
 
 **Python:** use name.str.split(expand TRUE)
 
-## Data Wrangling 
+## Data Wrangling
 
 ### Filter
 
@@ -719,7 +719,7 @@ Goal: make the column names into observations under new variable name, and align
 
 -   with !
 
-#### AND / OR 
+#### AND / OR
 
 -   & or comma for AND statements
 
@@ -800,7 +800,7 @@ group_mutate <- pie_crab %>%
   mutate(mean_size = mean(size, na.rm = TRUE))
 ```
 
-#### dyplyr::case_when() 
+#### dyplyr::case_when()
 
 use to write if-else statements more easily
 
@@ -820,3 +820,28 @@ sites_binned <- pie_crab %>%
     TRUE ~ "High"
   ))
 ```
+
+## Relational Data
+
+-   multiple tables of data that are related by important factors
+
+-   data base management systems (RDBMS) and SQL
+
+### joins ()
+
+1.  Mutating joins: *adds new variables to one data frame from matching observations in another*
+2.  Filtering joins: *filer one data set based on whether or not it matches an observation in another table*
+
+Looking for a **key** to connect data frames
+
+#### full_join (x, y)
+
+*Everything from both data sets is conserved, and no observation is removed.*
+
+#### left_join (x, y)
+
+*everything in x is kept, and only things from y that have a matching **key** are added. Anything in y that does not have a matching key in x are dropped.*
+
+#### inner_join (x, y)
+
+*only keep things from each table with a key match in x and y. There will be no NA values added to new dataset.*
