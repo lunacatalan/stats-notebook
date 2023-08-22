@@ -900,3 +900,13 @@ inner_join_ex <- inner_join(animals, sites) %>%
 -   Examples
     -   1996-02-18T20:34-07:00
     -   2002-12-05T2:41-07:00
+
+### lubridate package 
+
+-   included in tidyverse
+
+#### Classes of date-time data
+
+Date: calendar dates
+
+POSIXct: including time zone information
