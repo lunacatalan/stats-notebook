@@ -901,7 +901,7 @@ inner_join_ex <- inner_join(animals, sites) %>%
     -   1996-02-18T20:34-07:00
     -   2002-12-05T2:41-07:00
 
-### lubridate package 
+### lubridate package
 
 -   included in tidyverse
 
@@ -910,3 +910,25 @@ inner_join_ex <- inner_join(animals, sites) %>%
 Date: calendar dates
 
 POSIXct: including time zone information
+
+# Data Visualization
+
+-   data, aesthetics, geometric object, facets, statistical transformations, coordinates, theme
+
+-   **Questions to ask:**
+
+    -   is it correct?
+
+        -   do the observations / experimental design make sense
+
+        -   avoid data wrangling/calculation mistakes -\> keep raw data raw
+
+    -   it is useful? for who?
+
+        -   ACCESSIBILITY
+
+        -   directly label elements on the graph
+
+    -   does it communicate data responsibly?
+
+    -   does it look awesome?
