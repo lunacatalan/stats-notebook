@@ -932,3 +932,15 @@ POSIXct: including time zone information
     -   does it communicate data responsibly?
 
     -   does it look awesome?
+
+# Errors
+
+-   check spelling
+
+-   re-run code to make sure packages are attached and objects are stored in local workspace
+
+-   Blank ggplot?
+
+    -   check what data you're trying to plot
+
+    -   forgot to add a plus sign to geom_layer
